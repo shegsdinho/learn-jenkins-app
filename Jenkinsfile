@@ -32,6 +32,7 @@ pipeline {
                     echo "Test stage"
                     find build -name "index.html"
                     ls build | grep "index.html"
+                    npm test
                 '''
             }
         }
