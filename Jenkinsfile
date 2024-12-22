@@ -30,11 +30,16 @@ pipeline {
             steps {
                 sh '''
                     echo "Test stage"
-                    find build -name "index.html"
-                    ls build | grep "index.html"
+                    test -f build/index.html
                     npm test
                 '''
             }
+        }
+    }
+
+    post{
+        always{
+            junit 'test-results/junit.xml'
         }
     }
 }
